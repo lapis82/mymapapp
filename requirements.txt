@@ -1,2 +1,2 @@
-folium==0.14.0
+folium
 pip install -r requirements.txt
