@@ -66,12 +66,23 @@ catacombs = [
 
 # 마커 추가
 for name, coords, desc in catacombs:
+    html = f"""
+    <div style="width: 300px; max-height: 200px; overflow-y: auto; font-size: 14px;">
+        <strong>{name}</strong><br>
+        {desc}
+    </div>
+    """
+    popup = folium.Popup(html, max_width=350)
+    
     folium.Marker(
         location=coords,
-        popup=f"<b>{name}</b><br>{desc}",
+        popup=popup,
         tooltip=name,
         icon=folium.Icon(color='darkred', icon='info-sign')
     ).add_to(map_rome)
+
+
+
 
 # Streamlit에 지도 표시
 st_data = st_folium(map_rome, width=1000, height=600)
