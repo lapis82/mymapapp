@@ -1,2 +1,1 @@
 folium
-pip install -r requirements.txt
